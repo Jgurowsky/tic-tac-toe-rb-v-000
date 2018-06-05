@@ -38,9 +38,23 @@ def turn(board)
   input = gets.strip
   index = input_to_index(input)
   if valid_move?(board, index)
-    move(board, index, current_player)
+    move(board, index, current_player(board))
     display_board(board)
   else
     turn(board)
   end
+end
+
+def turn_count(board)
+  counter = 0
+  board.each do |token|
+    if token == "X" || token == "O"
+      counter += 1
+    end
+  end
+  counter
+end
+
+def current_player(board)
+  turn_count(board).even? ? "X" : "O"
 end
