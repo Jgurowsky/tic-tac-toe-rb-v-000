@@ -45,6 +45,14 @@ def turn(board)
   end
 end
 
+def play(board)
+  turn_counter = 0
+  while turn_counter < 9
+    turn_counter += 1
+    turn(board)
+  end
+end
+
 def turn_count(board)
   counter = 0
   board.each do |token|
